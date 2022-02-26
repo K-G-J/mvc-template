@@ -28,7 +28,9 @@ router
             });
     });
 // get single user
-router.route('/:id').get((req, res) => {
+router
+    .route('/:id')
+    .get((req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {

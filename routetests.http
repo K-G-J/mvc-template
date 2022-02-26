@@ -1,12 +1,22 @@
 # base url = http://localhost:3001/api/
 
-# GET     http://localhost:3001/api/users/9
+# GET     http://localhost:3001/api/users/1
 # DELETE  http://localhost:3001/api/users/8
 
-POST    http://localhost:3001/api/users/login
-Content-Type: application/json
+# POST    http://localhost:3001/api/users
+# Content-Type: application/json
 
-{
-    "email": "wally@email.com",
-    "password":"newpassword"
-}
+# {
+#     "username": "Lernantino",
+#     "email": "lernantino@gmail.com",
+#     "password": "password1234"
+# }
+
+GET http://localhost:3001/api/posts/
+# Content-Type: application/json
+
+# {
+#   "title": "Runbuddy reaches 1 million subscribers",
+#   "post_url": "https://runbuddy.com/press",
+#   "user_id": 1
+# }

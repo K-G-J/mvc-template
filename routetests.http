@@ -1,13 +1,12 @@
 # base url = http://localhost:3001/api/
 
-GET     http://localhost:3001/api/users
+# GET     http://localhost:3001/api/users/9
 # DELETE  http://localhost:3001/api/users/8
 
-# POST    http://localhost:3001/api/users
-# Content-Type: application/json
+POST    http://localhost:3001/api/users/login
+Content-Type: application/json
 
 {
-    "username": "",
-    "email":"bob4@email.com",
-    "password":"password"
+    "email": "wally@email.com",
+    "password":"newpassword"
 }

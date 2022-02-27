@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post, Vote } = require('../../models');
+const { User, Post, Vote, Comment } = require('../../models');
 
 // get all users
 router.get('/', (req, res) => {
@@ -23,6 +23,14 @@ router.get('/:id', (req, res) => {
             {
                 model: Post,
                 attributes: ['id', 'title', 'post_url', 'created_at']
+            },
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'created_at'],
+                include: {
+                    model: Post,
+                    attributes: ['title']
+                }
             },
             {
                 model: Post,
@@ -80,7 +88,7 @@ router.post('/login', (req, res) => {
         res.json({ user: dbUserData, message: 'You are now logged in!' });
     });
 });
-// change a user email or password 
+// change a user email or password
 router.put('/:id', (req, res) => {
     // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
     User.update(req.body, {
@@ -101,7 +109,7 @@ router.put('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-// delete a user 
+// delete a user
 router.delete('/:id', (req, res) => {
     User.destroy({ where: { id: req.params.id } })
         .then((dbUserData) => {

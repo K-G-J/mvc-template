@@ -1,30 +1,44 @@
 # base url = http://localhost:3001/api/
 
-# GET     http://localhost:3001/api/users/1
-# DELETE  http://localhost:3001/api/users/8
+# GET     http://localhost:3001/api/users/
+# DELETE  http://localhost:3001/api/users
+# GET     http://localhost:3001/api/posts
+# DELETE  http://localhost:3001/api/posts/1
+# GET     http://localhost:3001/api/comments
+# DELETE  http://localhost:3001/api/comments/1
+
 
 # POST    http://localhost:3001/api/users
 # Content-Type: application/json
 
 # {
-#     "username": "Lernantino",
-#     "email": "lernantino@gmail.com",
-#     "password": "password1234"
+#     "username": "Waldorf",
+#     "email": "wally@gmail.com",
+#     "password": "password12"
 # }
 
 # POST http://localhost:3001/api/posts/
 # Content-Type: application/json
 
 # {
-#   "title": "Runbuddy reaches 1 million subscribers",
-#   "post_url": "https://runbuddy.com/press",
-#   "user_id": 1
+#   "title": "Wally's World",
+#   "post_url": "https://wallysworld.com/go",
+#   "user_id": 3
 # }
 
 # PUT http://localhost:3001/api/posts/upvote
 # Content-Type: application/json
 
 # {
+#     "user_id": 3,
+#     "post_id": 2
+# }
+
+# POST http://localhost:3001/api/comments 
+# Content-Type: application/json
+
+# {
+#     "comment_text": "Neato!",
 #     "user_id": 1,
-#     "post_id": 1
+#     "post_id": 2
 # }

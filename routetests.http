@@ -44,10 +44,10 @@
 # }
 
 POST https://just-tech-news-kj.herokuapp.com/api/users
-Content-Type: application/json
+# Content-Type: application/json
 
-{
-    "username": "Waldorf",
-    "email": "wally@gmail.com",
-    "password": "password12"
-}
+# {
+#     "username": "Waldorf",
+#     "email": "wally@gmail.com",
+#     "password": "password12"
+# }

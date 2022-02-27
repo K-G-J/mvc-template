@@ -42,3 +42,12 @@
 #     "user_id": 1,
 #     "post_id": 2
 # }
+
+POST https://just-tech-news-kj.herokuapp.com/api/users
+Content-Type: application/json
+
+{
+    "username": "Waldorf",
+    "email": "wally@gmail.com",
+    "password": "password12"
+}

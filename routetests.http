@@ -12,11 +12,19 @@
 #     "password": "password1234"
 # }
 
-GET http://localhost:3001/api/posts/
+# POST http://localhost:3001/api/posts/
 # Content-Type: application/json
 
 # {
 #   "title": "Runbuddy reaches 1 million subscribers",
 #   "post_url": "https://runbuddy.com/press",
 #   "user_id": 1
+# }
+
+# PUT http://localhost:3001/api/posts/upvote
+# Content-Type: application/json
+
+# {
+#     "user_id": 1,
+#     "post_id": 1
 # }

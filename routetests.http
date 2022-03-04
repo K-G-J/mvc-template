@@ -43,11 +43,11 @@
 #     "post_id": 2
 # }
 
-POST https://just-tech-news-kj.herokuapp.com/api/posts
-Content-Type: application/json
+# GET https://just-tech-news-kj.herokuapp.com/api/users/1
+# Content-Type: application/json
 
-{
-  "title": "Wally's World",
-  "post_url": "https://wallysworld.com/go",
-  "user_id": 3
-}
+# {
+#     "comment_text": "share my world with me!",
+#     "user_id": 1,
+#     "post_id": 2
+# }

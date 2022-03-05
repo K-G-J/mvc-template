@@ -1,6 +1,6 @@
 # base url = http://localhost:3001/api/
 
-# GET     http://localhost:3001/api/users/
+GET     http://localhost:3001/api/users/
 # DELETE  http://localhost:3001/api/users
 # GET     http://localhost:3001/api/posts
 # DELETE  http://localhost:3001/api/posts/1

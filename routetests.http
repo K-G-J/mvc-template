@@ -17,14 +17,14 @@
 #     "password": "password12"
 # }
 
-# POST http://localhost:3001/api/posts/
-# Content-Type: application/json
+POST http://localhost:3001/api/posts/
+Content-Type: application/json
 
-# {
-#   "title": "Wally's World",
-#   "post_url": "https://wallysworld.com/go",
-#   "user_id": 3
-# }
+{
+  "title": "I'M PICKLE RICK!",
+  "post_url": "https://www.yoiampicklerick.com",
+  "user_id": 4
+}
 
 # PUT http://localhost:3001/api/posts/upvote
 # Content-Type: application/json

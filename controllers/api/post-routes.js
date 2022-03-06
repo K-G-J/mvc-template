@@ -50,6 +50,7 @@ router.get('/:id', (req, res) => {
       'id',
       'post_url',
       'title',
+      'text',
       'created_at',
       [
         sequelize.literal(
@@ -90,6 +91,7 @@ router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
+    text: req.body.text,
     user_id: req.session.user_id
   })
     .then((dbPostData) => res.json(dbPostData))
@@ -113,11 +115,12 @@ router.put('/upvote', withAuth, (req, res) => {
       });
   }
 });
-// update a post title
+// update a post 
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      text: req.body.text
     },
     {
       where: {

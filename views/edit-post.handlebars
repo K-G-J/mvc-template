@@ -3,27 +3,30 @@
   <h2>
     Edit Post
   </h2>
-  <form class="edit-post-form">
-    <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
+  <form class="edit-post-form form-label container">
+    <div class="form-input">
+      <input class="card" name="post-title" type="text" value="{{post.title}}" />
       <span>({{format_url post.post_url}})</span>
+    </div>
+    <div class="form-input">
+      <textarea class="w-100 card" name='post-text' type="text" value="{{post.text}}"></textarea>
     </div>
     <div>
       {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
       |
       <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
     </div>
-    <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="submit" class="btn w-25">Save post</button>
+    <button type="button" class="delete-post-btn btn w-25">Delete post</button>
   </form>
 </article>
-<form class="comment-form">
+<form class="comment-form form-input container">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="comment-body" class="card w-100"></textarea>
   </div>
   {{> comments post.comments}}
   <div>
-    <button type="submit">add comment</button>
+    <button type="submit" class="btn w-25">add comment</button>
   </div>
 </form>
 <script src="/javascript/edit-post.js"></script>

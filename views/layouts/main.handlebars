@@ -3,20 +3,20 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>Just Tech News</title>
+    <title>The console.log Blog!</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
 
   <body>
     <div class='wrapper'>
       <header>
-        <h1>
-          <a href='/'>Just Tech News</a>
+        <h1 class="logo">
+          <a href='/' class="page-title card-header container">The console.log Blog</a>
         </h1>
-        <nav>
+        <nav class='nav'>
           {{#if loggedIn}}
-            <a href='/dashboard'>dashboard</a>
-            <button id='logout' class='btn-no-style'>logout</button>
+            <a href='/dashboard' class="btn card w-10 m-1">dashboard</a>
+            <button id='logout' class='btn-no-style btn card w-5 m-1'>logout</button>
           {{else}}
             <a href='/login'>login</a>
           {{/if}}
@@ -25,8 +25,8 @@
       <main>
         {{{body}}}
       </main>
-      <footer>
-        Thanks for visiting!
+      <footer class="container">
+        <h4>Thanks for visiting!</h4>
       </footer>
     </div>
 

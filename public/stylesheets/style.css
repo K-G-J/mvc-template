@@ -296,6 +296,27 @@ nav a:hover {
   position: absolute;
   z-index: -1;
 }
+#search-form {
+  margin-top: 30px;
+  width: 50%;
+}
+#query:focus {
+  outline: none !important;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--secondary);
+}
+input:focus {
+  outline: none !important;
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--secondary);
+}
+#query {
+  font: 16px system-ui;
+  color: var(--primary);
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
 
 /* LAYOUT */
 .container {

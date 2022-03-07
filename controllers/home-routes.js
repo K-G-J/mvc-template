@@ -64,7 +64,12 @@ router.get('/post/:id', (req, res) => {
       'text',
       'post_image',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'
+        ),
+        'vote_count'
+      ]
     ],
     include: [
       {
@@ -81,18 +86,66 @@ router.get('/post/:id', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
+    .then((dbPostData) => {
       if (!dbPostData) {
         res.status(404).json({ message: 'No post found with this id' });
         return;
       }
-      const post = dbPostData.get({ plain: true })
-      res.render('single-post', { post, loggedIn: req.session.loggedIn })
+      const post = dbPostData.get({ plain: true });
+      res.render('single-post', { post, loggedIn: req.session.loggedIn });
     })
-    .catch(err => {
+    .catch((err) => {
       console.error(err);
-      res.status(500).json(err)
+      res.status(500).json(err);
+    });
+});
+// search by title
+router.get('/search/:title', (req, res) => {
+  Post.findOne({
+    where: {
+      title: req.params.title
+    },
+    attributes: [
+      'id',
+      'post_url',
+      'title',
+      'text',
+      'post_image',
+      'created_at',
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'
+        ),
+        'vote_count'
+      ]
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
   })
+    .then((dbPostData) => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      const post = dbPostData.get({ plain: true });
+      res.render('single-post', { post, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
 });
 
 module.exports = router;

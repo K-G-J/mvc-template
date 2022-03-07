@@ -9,16 +9,14 @@
 
   <body>
     <div class='wrapper'>
+    <a id="logo" href='/' class="page-title card-header container mt-5"><span>console.log Blog</span></a>
       <header>
-        <h1 class="logo">
-          <a href='/' class="page-title card-header container">The console.log Blog</a>
-        </h1>
         <nav class='nav'>
           {{#if loggedIn}}
-            <a href='/dashboard' class="btn card w-10 m-1">dashboard</a>
-            <button id='logout' class='btn-no-style btn card w-5 m-1'>logout</button>
+            <a href='/dashboard' class="btn card w-10 m-1 mt-3">dashboard</a>
+            <button id='logout' class='btn-no-style btn card w-5 m-1 mt-3'>logout</button>
           {{else}}
-            <a href='/login'>login</a>
+            <a  class="btn card w-10 m-1 mt-3" href='/login'>login</a>
           {{/if}}
         </nav>
       </header>

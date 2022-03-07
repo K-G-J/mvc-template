@@ -1,10 +1,10 @@
-<div class='comments card-header container card w-50'>
+<div class='comments container card-header card w-50'>
   {{#each this}}
-    <section class='comment container card'>
-      <div class='meta container card'>
+    <section class='comment card'>
+      <div class='meta card'>
         {{user.username}} on {{format_date created_at}}
       </div>
-      <div class='text container card'>
+      <div class='text card'>
         {{comment_text}}
       </div>
     </section>

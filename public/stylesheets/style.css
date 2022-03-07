@@ -1,9 +1,9 @@
 :root {
-  --primary: #9dbdc6;
-  --secondary: #daeaef;
-  --tertiary: #ff3d2e;
-  --light: #ffffff;
-  --dark: #272f32;
+  --primary: #3E3347;
+  --secondary: #E2DCE5;
+  --tertiary: #53455F;
+  --light: #3E3347;
+  --dark: #1f1a23;
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
   --spacing-two: calc(1rem * 0.5);
@@ -15,6 +15,62 @@
 * {
   box-sizing: border-box;
 }
+
+#logo {
+  position: relative;
+  left: 10%;
+  top: 10%;
+  transform: translate(-10%, -10%);
+  display: block;
+  font-size: 100px;
+  letter-spacing: 8px;
+  cursor: pointer;
+}
+
+#log::before {
+  content: "The console.log Blog";
+  position: absolute;
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 2px,
+    white 2px,
+    white 4px
+  );
+  -webkit-background-clip: text;
+  top: 0px;
+  left: 0;
+  z-index: -1;
+  transition: 1s;
+}
+
+#logo::after {
+  content: "The console.log Blog";
+  position: absolute;
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 2px,
+    white 2px,
+    white 4px
+  );
+  -webkit-background-clip: text;
+  top: 0px;
+  left: 0px;
+  transition: 1s;
+}
+
+#logo:hover:before {
+  top: 10px;
+  left: 10px;
+}
+
+#logo:hover:after {
+  top: -10px;
+  left: -10px;
+} 
 
 body {
   background-color: var(--secondary);
@@ -37,44 +93,87 @@ h6 {
   margin: 5px 0;
   color: var(--dark);
   line-height: 1.25;
+  font-family: 'Public Sans', sans-serif;
 }
 .logo{
   margin-top: 10;
   display: inline-flex;
   justify-content: flex-start;
+  border-radius: var(--border-radius);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  background-color: var(--light-dark);
+  box-shadow: 3px 3px var(--dark);
+  padding: 15px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: 'Public Sans', sans-serif;
 }
-
+#new-post-form {
+  display: none;
+}
+#signup-form {
+  display: none;
+}
+#or {
+  font-weight: 500;
+  padding: 10;
+  color: var(--dark);
+  text-align: left;
+}
+a:link {
+  text-decoration: none;
+  color: var(--light-dark);
+  font-family: 'Public Sans', sans-serif;
+}
 h1 {
   font-size: 2.25rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 h2 {
   font-size: 2rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 h3 {
   font-size: 1.75rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 h4 {
   font-size: 1.5rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 h5 {
   font-size: 1.25rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 h6 {
   font-size: 1rem;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 p {
   font-size: 1.1rem;
   margin-top: 0;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 a {
   text-decoration: none;
+  font-family: 'Public Sans', sans-serif;
+   color: var(--dark);
 }
 
 header {
@@ -82,10 +181,12 @@ header {
   position: sticky;
   top: 0;
   margin-bottom: 20;
+  font-family: 'Public Sans', sans-serif;
 }
 footer {
   display: flex;
   justify-content: center;
+  font-family: 'Public Sans', sans-serif;
 }
 nav {
   width: 100%;
@@ -95,11 +196,13 @@ nav {
   justify-content: flex-end;
   text-align: center;
   padding-bottom: 20;
+  font-family: 'Public Sans', sans-serif;
 }
 
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
+  font-family: 'Public Sans', sans-serif;
 }
 
 .page-title {
@@ -107,10 +210,12 @@ nav a:hover {
   width: 100%;
   margin: 0;
   font-size: 2.5rem;
+  font-family: 'Public Sans', sans-serif;
 }
 .btn {
   font-size: 1.3rem;
-  text-decoration: none;
+  text-decoration: bold;
+  font-weight: bold;
   padding: 0.5rem 1.2rem;
   width: 100%;
   margin: 5px 0;
@@ -118,15 +223,25 @@ nav a:hover {
   color: var(--dark);
   outline: none;
   background-color: var(--primary);
+  font-family: 'Public Sans', sans-serif;
+    background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 0.2px,
+    white 2px,
+    white 4px
+  );
 }
 
 .btn:hover {
   color: var(--dark);
   background-color: var(--secondary);
+  font-family: 'Public Sans', sans-serif;
 }
 
 .btn-inline {
   display: inline;
+  font-family: 'Public Sans', sans-serif;
 }
 
 /* CARDS */
@@ -166,6 +281,7 @@ nav a:hover {
   font-size: 1.2rem;
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
+  font-family: 'Public Sans', sans-serif;
 }
 
 /* LAYOUT */
@@ -358,7 +474,9 @@ nav a:hover {
 .mr-5 {
   margin-right: var(--spacing-five);
 }
-
+.mr-11 {
+  margin-right: var(--spacing-11);
+}
 .mr-auto {
   margin-right: auto;
 }

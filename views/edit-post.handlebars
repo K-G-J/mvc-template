@@ -1,15 +1,15 @@
 <article>
-  <a href="/dashboard"> &larr; Back to dashboard</a>
-  <h2>
+  <a class="btn m-2 mb-3" href="/dashboard"> &larr; Back to dashboard</a>
+  <h2 class="card-header mt-3 mb-3">
     Edit Post
   </h2>
   <form class="edit-post-form form-label container">
     <div class="form-input">
-      <input class="card" name="post-title" type="text" value="{{post.title}}" />
+      <input class="card w-50 h-5" name="post-title" type="text" value="{{post.title}}" />
       <span>({{format_url post.post_url}})</span>
     </div>
     <div class="form-input">
-      <textarea class="w-100 card" name='post-text' type="text" value="{{post.text}}"></textarea>
+      <textarea class="w-100 card h-50" name='post-text' type="text">{{post.text}}</textarea>
     </div>
     <div>
       {{post.vote_count}} {{format_plural "point" post.vote_count}} by you on {{format_date post.created_at}}
@@ -20,13 +20,15 @@
     <button type="button" class="delete-post-btn btn w-25">Delete post</button>
   </form>
 </article>
-<form class="comment-form form-input container">
-  <div>
-    <textarea name="comment-body" class="card w-100"></textarea>
+<form class="comment-form card container form-input">
+  <div class="container">
+    <textarea name="comment-body" class="card w-100 h-10"></textarea>
   </div>
-  {{> comments post.comments}}
   <div>
-    <button type="submit" class="btn w-25">add comment</button>
+    {{> comments post.comments}}
+  <div class="container w-25">
+    <button type="submit" class="btn w-100">add comment</button>
+  </div>
   </div>
 </form>
 <script src="/javascript/edit-post.js"></script>

@@ -1,6 +1,22 @@
+  {{#if posts.length}}
 <section>
-  <h2 class="card-header container">Create New Post</h2>
-
+  <h2 class="card card-header container">Your Posts</h2>
+  <div>
+    {{#each posts as |post|}}
+    <div class="card container post-content">
+      {{> post-info post}}
+    </div>
+    <div class="container">
+      <a href="/dashboard/edit/{{post.id}}" class="edit-link btn container card">Edit post</a>
+    </div>
+    {{/each}}
+    <div class="container">
+      <button class="btn w-25 p-3 mt-5" id="create-new">Add a post</button>
+    </div>
+</section>
+{{/if}}
+<div id="new-post-form">
+    <h2 class="card-header container">New Post</h2>
   <form class='new-post-form form-input form-label container'>
     <div>
       <label for='post-title'>Title</label>
@@ -15,21 +31,5 @@
     </div>
     <button type='submit' class='btn w-25 h-5'>Create</button>
   </form>
-</section>
-
-{{#if posts.length}}
-<section>
-  <h2 class="card card-header container">Your Posts</h2>
-  <div>
-    {{#each posts as |post|}}
-    <div class="container post-content card">
-      {{> post-info post}}
-    </div>
-    <div class="container">
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link btn">Edit post</a>
-    </div>
-    {{/each}}
-  </div>
-</section>
-{{/if}}
+</div>
 <script src="/javascript/add-post.js"></script>

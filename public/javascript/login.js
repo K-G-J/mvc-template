@@ -20,6 +20,10 @@ async function signupFormHandler(event) {
     }
   }
 }
+document.querySelector('#show-signup-form').addEventListener('click', () => {
+  formDiv = document.querySelector('#signup-form');
+  formDiv.style.display = 'block';
+})
 document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
 
 async function loginFormHandler(event) {

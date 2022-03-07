@@ -21,5 +21,8 @@ async function newFormHandler(event) {
     alert(response.statusText);
   }
 }
-
+document.querySelector('#create-new').addEventListener('click', function () {
+  const formDiv = document.getElementById('new-post-form')
+  formDiv.style.display = 'block';
+});
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);

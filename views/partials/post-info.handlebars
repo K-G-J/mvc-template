@@ -1,13 +1,16 @@
 <article class='post container'>
   <div class='title container page-title'>
-    <a href='/post/{{id}}'>{{title}}</a>
-    <span><a href='{{post_url}}' target='_blank'>({{format_url post_url}})</a></span>
+    <a style="font-style:bold;" href='/post/{{id}}'>{{title}}</a>
+    <span><a style="font-style:italic;" href='{{post_url}}' target='_blank'>({{format_url post_url}})</a></span>
   </div>
-  <div class='text container card-body'>
+  <div class='text container card-body post-text'>
         {{text}}
   </div class="container card">
+  <div class='container'>
+    <h5>By {{user.username}} on {{format_date created_at}}</h5>
+  </div>
     <div class='meta container'>
-      {{vote_count}} {{format_plural "point" vote_count }} by {{user.username}} on {{format_date created_at}}
+      {{vote_count}} {{format_plural "point" vote_count }} 
       |
       <a href='/post/{{id}}'>{{comments.length}} {{format_plural "comment" comments.length}}</a>
     </div>

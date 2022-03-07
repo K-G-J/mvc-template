@@ -6,7 +6,7 @@
   <form class="edit-post-form form-label container">
     <div class="form-input">
       <input class="card w-50 h-5" name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <span style="font-style:italic;">({{format_url post.post_url}})</span>
     </div>
     <div class="form-input">
       <textarea class="w-100 card h-50" name='post-text' type="text">{{post.text}}</textarea>

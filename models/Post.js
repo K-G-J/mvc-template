@@ -49,6 +49,9 @@ Post.init(
     text: {
       type: DataTypes.TEXT
     },
+    post_image: {
+      type: DataTypes.STRING
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

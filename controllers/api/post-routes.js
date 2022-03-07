@@ -2,6 +2,33 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Post, User, Vote, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
+// image uploading
+const multer = require('multer')
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images');
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
 
 // get all posts
 router.get('/', (req, res) => {
@@ -10,6 +37,7 @@ router.get('/', (req, res) => {
       'id',
       'post_url',
       'title',
+      'post_image',
       'created_at',
       [
         sequelize.literal(
@@ -51,6 +79,7 @@ router.get('/:id', (req, res) => {
       'post_url',
       'title',
       'text',
+      'post_image',
       'created_at',
       [
         sequelize.literal(
@@ -87,14 +116,15 @@ router.get('/:id', (req, res) => {
     });
 });
 // create a post
-router.post('/', withAuth, (req, res) => {
+router.post('/', upload.single('post_image'), withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
     text: req.body.text,
+    post_image: req.file.path,
     user_id: req.session.user_id
   })
-    .then((dbPostData) => res.json(dbPostData))
+    .then((dbPostData) => res.send(dbPostData))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);

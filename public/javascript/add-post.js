@@ -21,4 +21,4 @@ document.querySelector('#add-new').addEventListener('click', function () {
   formDiv.style.display = 'block';
 });
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
-document.querySelector('#create-new').addEventListener('submit', newFormHandler);
+document.querySelector('#create-new').addEventListener('click', newFormHandler);

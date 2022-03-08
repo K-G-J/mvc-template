@@ -1,11 +1,11 @@
 async function searchFormHandler(event) {
   event.preventDefault();
   const title = document.querySelector('input[name="query"]').value.trim();
-  const response = await fetch(`/search/${title}`)
-  if (response.ok) {
-    console.log('sucess');
-  } else {
-    alert(response.statusText);
+  try {
+    const response = await axios.get(`/search/${title}`)
+    console.log('success', response)
+  } catch (error) {
+    console.log('error', error)
   }
 };
 document.querySelector('#search-form').addEventListener('submit', searchFormHandler);

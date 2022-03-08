@@ -4,9 +4,12 @@
     Edit Post
   </h2>
   <form class="edit-post-form form-label container">
-    <div class="form-input">
+    <div class="form-input flex">
+      <label for='post-title'>Title</label>
       <input class="card w-50 h-5" name="post-title" type="text" value="{{post.title}}" />
-      <span style="font-style:italic;">({{format_url post.post_url}})</span>
+      <br>
+      <label for='post-title'>Link</label>
+      <input class="card w-50 h-5" name="post-url" type="text" value="{{post.post_url}}" />
     </div>
     <div class="form-input">
       <textarea class="w-100 card h-50" name='post-text' type="text">{{post.text}}</textarea>

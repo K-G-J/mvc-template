@@ -1,4 +1,5 @@
-async function searchFormHandler() {
+async function searchFormHandler(event) {
+  event.preventDefault();
   const title = document.querySelector('input[name="query"]').value.trim();
   const response = await fetch(`/search/${title}`)
   if (response.ok) {
@@ -7,4 +8,4 @@ async function searchFormHandler() {
     alert(response.statusText);
   }
 };
-document.querySelector('.search-form').addEventListener('submit', searchFormHandler);
+document.querySelector('#search-form').addEventListener('submit', searchFormHandler);

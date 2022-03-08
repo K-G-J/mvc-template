@@ -5,13 +5,16 @@
   </div>
   <div class='text container card-body post-text'>
         {{text}}
-  </div class="container card">
-  <div class='container'>
+  <div class='container post-image'>
+    <img src='{{format_path post_image}}' class="w-50" >
+  </div>
+  </div>
+  <div class='container author'>
     <h5>By {{user.username}} on {{format_date created_at}}</h5>
   </div>
-    <div class='meta container'>
+    <div class='meta container details'>
       {{vote_count}} {{format_plural "point" vote_count }} 
-      |
-      <a href='/post/{{id}}'>{{comments.length}} {{format_plural "comment" comments.length}}</a>
+      | 
+      <a href='/post/{{id}}'> {{comments.length}}  {{format_plural "comment" comments.length}}</a>
     </div>
 </article>

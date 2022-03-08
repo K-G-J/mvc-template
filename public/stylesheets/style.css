@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 
-#log::before {
+#logo::before {
   content: 'The console.log Blog';
   position: absolute;
   color: transparent;
@@ -355,7 +355,18 @@ input:focus {
   color: var(--dark);
   text-align: left;
 }
-
+.post-image {
+  display: flex;
+  justify-content: center;
+}
+.author {
+  display: flex;
+  justify-content: center;
+}
+.details {
+  display: flex;
+  justify-content: center;
+}
 /* HEIGHT / WIDTH UTILS */
 .w-100 {
   width: 100%;

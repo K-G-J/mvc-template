@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 const multer = require('multer')
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images');
+    cb(null, 'public/images');
   },
   filename: function (req, file, cb) {
     cb(null, new Date().toISOString() + file.originalname);
@@ -116,7 +116,7 @@ router.get('/:id', (req, res) => {
     });
 });
 // create a post
-router.post('/', upload.single('post_image'), withAuth, (req, res) => {
+router.post('/', upload.single('post_image'), (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,
@@ -150,6 +150,7 @@ router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
       title: req.body.title,
+      post_url: req.body.post_url,
       text: req.body.text
     },
     {

@@ -12,8 +12,8 @@
     <a id="logo" href='/' class="page-title card-header container mt-5"><span>console.log Blog</span></a>
       <header>
         <nav class='nav'>
-          <form id="search-form" class="container"> 
-          <input type="search" id="query" name="query" placeholder="Search...">
+          <form id="search-form" class="container" type="text"> 
+          <input type="text" id="query" name="query" placeholder="Search...">
           </form>
           {{#if loggedIn}}
             <a href='/dashboard' class="btn card w-10 m-1 mt-3">dashboard</a>
@@ -30,7 +30,8 @@
         <h3>Thanks for logging on!</h3>
       </footer>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src='/javascript/search.js'></script>
     {{#if loggedIn}}
       <script src='/javascript/logout.js'></script>
     {{/if}}

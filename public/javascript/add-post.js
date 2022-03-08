@@ -1,28 +1,24 @@
 async function newFormHandler(event) {
   event.preventDefault();
-  const title = document.querySelector('input[name="post-title"]').value;
-  const text = document.querySelector('textarea[name="post-text"]').value.trim();
-  const post_url = document.querySelector('input[name="post-url"]').value;
-  console.log(text)
-  const response = await fetch(`/api/posts`, {
-    method: 'POST',
-    body: JSON.stringify({
-      title,
-      post_url,
-      text
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
-  if (response.ok) {
-    document.location.replace('/dashboard/');
-  } else {
-    alert(response.statusText);
-  }
+  const form = document.querySelector('.new-post-form');
+    const formData = new FormData(form);
+    axios
+      .post('/api/posts', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then((res) => {
+        console.log(res);
+        document.location.replace('/');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 }
-document.querySelector('#create-new').addEventListener('click', function () {
+document.querySelector('#add-new').addEventListener('click', function () {
   const formDiv = document.getElementById('new-post-form')
   formDiv.style.display = 'block';
 });
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#create-new').addEventListener('submit', newFormHandler);

@@ -5,25 +5,68 @@
 .Synthwave-5-hex { color: #FF019A; } */
 
 :root {
-  --primary: #321450;
-  --secondary: #29132e;;
-  --tertiary: #f887ff;
-  --light: #de004e;
-  --dark: #860029;
+  --tertiary: #d1f7ff;
+  --secondary: #111;
+  --primary: #222;
+  --light: #fff;
+  --dark: #ec1840;
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
   --spacing-two: calc(1rem * 0.5);
   --spacing-three: 1rem;
   --spacing-four: calc(1rem * 1.5);
   --spacing-five: calc(1rem * 3);
+  --color-red: #ec1840;
+  --color-purple: #7a18ec;
+  --color-white: #fff;
+  --color-black-1: #111;
+  --color-black-2: #222;
+  --color-black-3: #444;
+  --speed-normal: 0.5s;
+  --speed-fast: 0.8s;
 }
 
 * {
   box-sizing: border-box;
 }
+.btn {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  margin: 20px;
+  line-height: 60px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-black-1);
+  transition: var(--speed-normal);
+  border: 1px solid var(--color-red);
+}
+.btn:hover {
+  border: 1px solid transparent;
+  background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
+  transition-delay: 0.8s;
+  background-size: 180px;
+  animation: animate var(--speed-fast) steps(8) forwards;
+}
+.btn:hover:last-of-type {
+  border: 1px solid var(--color-purple);
+}
+.btn:hover:last-of-type:hover {
+  background: var(--color-purple) url(https://i.postimg.cc/FzBWFtKM/pixel2.png); 
+}
+@keyframes animate {
+  0% {
+    background-position-y: 0;
+  }
+  100% {
+    background-position-y: -480px;
+  }
+}
 
 #logo {
-  color: var(--light);
+  color: var(--color-black-1);
   position: relative;
   left: 10%;
   top: 10%;
@@ -223,36 +266,98 @@ nav a:hover {
   font-size: 2.5rem;
   font-family: 'Public Sans', sans-serif;
 }
-.btn {
-  font-size: 1.3rem;
-  text-decoration: bold;
-  font-weight: bold;
-  padding: 0.5rem 1.2rem;
-  width: 100%;
-  margin: 5px 0;
-  border-radius: var(--border-radius);
-  color: var(--dark);
-  outline: none;
-  background-color: var(--primary);
-  font-family: 'Public Sans', sans-serif;
-  background-image: repeating-linear-gradient(
+btn,
+btn::after {
+  width: 380px;
+  height: 86px;
+  font-size: 36px;
+  font-family: 'Bebas Neue', cursive;
+  background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  line-height: 88px;
+  box-shadow: 6px 0px 0px #00e6f6;
+  outline: transparent;
+  position: relative;
+}
+
+btn::after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: 'AVAILABLE NOW';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
     45deg,
-    transparent 0,
-    transparent 0.2px,
-    white 2px,
-    white 4px
+    transparent 3%,
+    #00e6f6 3%,
+    #00e6f6 5%,
+    #ff013c 5%
   );
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
+  clip-path: var(--slice-0);
 }
 
-.btn:hover {
-  color: var(--dark);
-  background-color: var(--secondary);
-  font-family: 'Public Sans', sans-serif;
+btn:hover::after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
 }
 
-.btn-inline {
-  display: inline;
-  font-family: 'Public Sans', sans-serif;
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
 }
 
 /* CARDS */
@@ -402,7 +507,7 @@ input:focus {
 .h-10 {
   height: 10%;
 }
-.h-20{
+.h-20 {
   height: 20%;
 }
 .h-25 {

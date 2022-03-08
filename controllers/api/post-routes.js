@@ -116,7 +116,7 @@ router.get('/:id', (req, res) => {
     });
 });
 // create a post
-router.post('/', upload.single('post_image'), (req, res) => {
+router.post('/', upload.single('post_image'), withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
     post_url: req.body.post_url,

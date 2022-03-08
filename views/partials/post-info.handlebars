@@ -5,8 +5,10 @@
   </div>
   <div class='text container card-body post-text'>
         {{text}}
-  <div class='container post-image'>
-    <img src='{{format_path post_image}}' class="w-50" >
+  <div class='flex-column justify-center post-image w-100'>
+    <a href='/post/{{id}}'>
+      <img src='{{format_path post_image}}' class="w-100" >
+    </a>
   </div>
   </div>
   <div class='container author'>

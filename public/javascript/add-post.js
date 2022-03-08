@@ -19,6 +19,7 @@ async function newFormHandler(event) {
 document.querySelector('#add-new').addEventListener('click', function () {
   const formDiv = document.getElementById('new-post-form')
   formDiv.style.display = 'block';
+  document.location.href='#new-post-form'
 });
 document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
 document.querySelector('#create-new').addEventListener('click', newFormHandler);

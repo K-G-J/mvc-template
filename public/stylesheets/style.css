@@ -1,9 +1,15 @@
+/* .Synthwave-1-hex { color: #00F1FF; }
+.Synthwave-2-hex { color: #0161E8; }
+.Synthwave-3-hex { color: #290CFF; }
+.Synthwave-4-hex { color: #9B00E8; }
+.Synthwave-5-hex { color: #FF019A; } */
+
 :root {
-  --primary: #de004e;
+  --primary: #FF019A;;
   --secondary: #29132e;
-  --tertiary: #860029;
-  --light: #C0C0C0;
-  --dark: #321450;
+  --tertiary: #0161E8;
+  --light: #00F1FF;
+  --dark: #9B00E8;
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
   --spacing-two: calc(1rem * 0.5);
@@ -17,7 +23,7 @@
 }
 
 #logo {
-  color: var(--primary);
+  color: var(--light);
   position: relative;
   left: 10%;
   top: 10%;
@@ -358,6 +364,7 @@ input:focus {
 .post-image {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .author {
   display: flex;

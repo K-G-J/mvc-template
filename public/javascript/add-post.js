@@ -10,7 +10,7 @@ async function newFormHandler(event) {
       })
       .then((res) => {
         console.log(res);
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       })
       .catch((err) => {
         console.log(err);

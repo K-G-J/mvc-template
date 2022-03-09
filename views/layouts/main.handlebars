@@ -16,7 +16,7 @@
           <input type="text" id="query" name="query" placeholder="Search...">
           </form>
           {{#if loggedIn}}
-            <a href='/dashboard' class="btn card w-10 m-1 mt-3">dashboard</a>
+            <a href='/dashboard' id="main-dashboard" class="btn card w-10 m-1 mt-3">dashboard</a>
             <button id='logout' class='btn-no-style btn card w-10 m-1 mt-3 mr-5'>logout</button>
           {{else}}
             <a  class="btn card w-10 m-1 mt-3" href='/login'>login</a>

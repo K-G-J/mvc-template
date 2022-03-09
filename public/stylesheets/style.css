@@ -48,13 +48,16 @@
   background: var(--color-red) url(https://i.postimg.cc/wBXGXbWN/pixel.png);
   transition-delay: 0.8s;
   background-size: 180px;
+  text-align: center;
   animation: animate var(--speed-fast) steps(8) forwards;
 }
 .btn:hover:last-of-type {
   border: 1px solid var(--color-purple);
+  text-align: center;
 }
 .btn:hover:last-of-type:hover {
   background: var(--color-purple) url(https://i.postimg.cc/FzBWFtKM/pixel2.png); 
+  text-align: center;
 }
 @keyframes animate {
   0% {
@@ -132,6 +135,11 @@ body {
   line-height: 1.5;
   font-size: 16px;
 }
+textarea {
+  font-size: 20px; 
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 300;
+}
 
 h1,
 h2,
@@ -175,6 +183,34 @@ h6 {
   text-align: left;
   width: 28%;
   align-items: center;
+}
+#your-posts-header {
+  display: flex;
+  justify-content: space-between;
+}
+#add-new{
+  text-align: center;
+  align-items: center;
+  border: 1px solid var(--color-red);
+}
+#edit-btn {
+  color: var(--color-white);
+  padding: 8;
+}
+#upload-image {
+  color: var(--color-white);
+  padding: 8;
+}
+#create-new {
+  align-items: center;
+  text-align: center;
+}
+#back-to-dashboard {
+  color: var(--color-white);
+  padding: 8;
+}
+#main-dashboard {
+  color: var(--color-white);
 }
 a:link {
   color: var(--light-dark);
@@ -431,6 +467,9 @@ input:focus {
   height: 100%;
   width: 100%;
   padding: 6px 10px;
+}
+#edit-comment {
+  height: 300%;
 }
 
 /* LAYOUT */

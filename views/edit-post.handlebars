@@ -1,6 +1,6 @@
 <article>
-  <a class="btn m-2 mb-3" href="/dashboard"> &larr; Back to dashboard</a>
-  <h2 class="card-header mt-3 mb-3">
+  <a class="btn" id="back-to-dashboard" href="/dashboard"> &larr; Back to dashboard</a>
+  <h2 class="card-header" id="edit">
     Edit Post
   </h2>
   <form class="edit-post-form form-label container">
@@ -24,8 +24,8 @@
   </form>
 </article>
 <form class="comment-form card container form-input">
-  <div class="container">
-    <textarea name="comment-body" class="card w-100 h-10"></textarea>
+  <div class="container flex-column justify-center w-50 h-25">
+    <textarea name="comment-body" class="card" id="edit-comment"></textarea>
   </div>
   <div>
     {{> comments post.comments}}

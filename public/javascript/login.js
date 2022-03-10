@@ -23,6 +23,7 @@ async function signupFormHandler(event) {
 document.querySelector('#show-signup-form').addEventListener('click', () => {
   formDiv = document.querySelector('#signup-form');
   formDiv.style.display = 'block';
+  document.location.href = '#signup-form';
 })
 
 async function loginFormHandler(event) {

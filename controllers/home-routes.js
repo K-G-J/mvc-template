@@ -30,7 +30,7 @@ router.get('/', (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email', 'id']
       }
     ]
   })
@@ -82,7 +82,7 @@ router.get('/post/:id', (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email', 'id']
       }
     ]
   })
@@ -130,7 +130,7 @@ router.get('/search/:title', (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email', 'id']
       }
     ]
   })

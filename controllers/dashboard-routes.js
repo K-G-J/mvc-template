@@ -5,14 +5,23 @@ const withAuth = require('../utils/auth');
 
 // get all posts for the dashboard
 router.get('/', withAuth, (req, res) => {
-  Post.findAll({ 
-    where: { 
-      // use the id from the session 
+  Post.findAll({
+    where: {
+      // use the id from the session
       user_id: req.session.user_id
     },
     attributes: [
-      'id', 'post_url', 'title', 'created_at', 'post_image', 
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      'id',
+      'post_url',
+      'title',
+      'created_at',
+      'post_image',
+      [
+        sequelize.literal(
+          '(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'
+        ),
+        'vote_count'
+      ]
     ],
     include: [
       {
@@ -20,22 +29,24 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
+          attributes: ['username', 'email']
         }
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email', 'id']
       }
     ]
-  }).then(dbPostData => {
-    // serialize the data
-    const posts = dbPostData.map(post => post.get({ plain: true }))
-    res.render('dashboard', { posts, loggedIn: true })
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json(err);
   })
+    .then((dbPostData) => {
+      // serialize the data
+      const posts = dbPostData.map((post) => post.get({ plain: true }));
+      res.render('dashboard', { posts, loggedIn: true });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 // get post for edit-post page 
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -68,7 +79,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
       },
       {
         model: User,
-        attributes: ['username']
+        attributes: ['username', 'email', 'id']
       }
     ]
   })
@@ -79,6 +90,31 @@ router.get('/edit/:id', withAuth, (req, res) => {
       }
       const post = dbPostData.get({ plain: true });
       res.render('edit-post', { post, loggedIn: req.session.loggedIn });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json(err);
+    });
+})
+// get post for edit-post page 
+router.get('/user/:id', withAuth, (req, res) => {
+  User.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'username',
+      'email'
+    ]
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id' });
+        return;
+      }
+      const user = dbUserData.get({ plain: true });
+      res.render('edit-account', { user, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
       console.error(err);

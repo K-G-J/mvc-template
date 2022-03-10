@@ -1,8 +1,8 @@
 # base url = http://localhost:3001/api/
 
 # GET     http://localhost:3001/api/users/
-# DELETE  http://localhost:3001/api/users
-GET     http://localhost:3001/api/posts/1
+# # DELETE  http://localhost:3001/api/users
+# GET     http://localhost:3001/api/posts/1
 # DELETE  http://localhost:3001/api/posts/1
 # GET     http://localhost:3001/api/comments
 # DELETE  http://localhost:3001/api/comments/1
@@ -43,11 +43,4 @@ GET     http://localhost:3001/api/posts/1
 #     "post_id": 2
 # }
 
-# GET https://just-tech-news-kj.herokuapp.com/api/users/1
-# Content-Type: application/json
-
-# {
-#     "comment_text": "share my world with me!",
-#     "user_id": 1,
-#     "post_id": 2
-# }
+GET http://localhost:3001/api/posts

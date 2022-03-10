@@ -212,6 +212,9 @@ h6 {
 #main-dashboard {
   color: var(--color-white);
 }
+#edit-user-form {
+  display: none;
+}
 a:link {
   color: var(--light-dark);
   font-family: 'Public Sans', sans-serif;

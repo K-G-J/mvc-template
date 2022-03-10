@@ -139,6 +139,7 @@ textarea {
   font-size: 20px; 
   font-family: 'Public Sans', sans-serif;
   font-weight: 300;
+  padding: 8;
 }
 
 h1,
@@ -214,6 +215,12 @@ h6 {
 }
 #edit-user-form {
   display: none;
+}
+input {
+  font-size: 20px; 
+  font-family: 'Public Sans', sans-serif;
+  font-weight: 300;
+  padding: 8;
 }
 a:link {
   color: var(--light-dark);

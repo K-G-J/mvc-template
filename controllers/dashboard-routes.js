@@ -45,7 +45,7 @@ router.get('/', withAuth, (req, res) => {
       //   user_id: req.session.user_id,
       //   posts
       // });
-      res.render('dashboard', { posts, user_id:req.session.user_id, loggedIn: true });
+      res.render('dashboard', { posts, user_id: req.session.user_id, loggedIn: true });
     })
     .catch((err) => {
       console.log(err);

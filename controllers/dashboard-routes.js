@@ -10,7 +10,7 @@ router.get('/', withAuth, (req, res) => {
       // use the id from the session
       user_id: req.session.user_id
     },
-    attributes: [
+    atçtributes: [
       'id',
       'post_url',
       'title',
@@ -41,6 +41,8 @@ router.get('/', withAuth, (req, res) => {
     .then((dbPostData) => {
       // serialize the data
       const posts = dbPostData.map((post) => post.get({ plain: true }));
+      posts.unshift(req.session.user_id,...posts)
+      // res.json(posts)
       res.render('dashboard', { posts, loggedIn: true });
     })
     .catch((err) => {

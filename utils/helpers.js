@@ -17,7 +17,10 @@ module.exports = {
       .split('/')[0]
       .split('?')[0];
   },
-  format_path: path => {
-    return path.split('public').pop();
+  get_user_id: postsArr => {
+    return postsArr[0];
+  },
+  format_posts: postsArr => {
+    return postsArr.shift();
   }
 }

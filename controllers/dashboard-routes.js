@@ -99,13 +99,23 @@ router.get('/edit/:id', withAuth, (req, res) => {
 // get post for edit-post page 
 router.get('/user/:id', withAuth, (req, res) => {
   User.findOne({
+    attributes: { exclude: ['password'] },
     where: {
       id: req.params.id
     },
-    attributes: [
-      'id',
-      'username',
-      'email'
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'title', 'post_url', 'created_at']
+      },
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: {
+          model: Post,
+          attributes: ['title']
+        }
+      }
     ]
   })
     .then((dbUserData) => {
@@ -117,7 +127,7 @@ router.get('/user/:id', withAuth, (req, res) => {
       res.render('edit-account', { user, loggedIn: req.session.loggedIn });
     })
     .catch((err) => {
-      console.error(err);
+      console.log(err);
       res.status(500).json(err);
     });
 })

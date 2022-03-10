@@ -1,18 +1,23 @@
-<div id="edit-user-form" class="container">
-  <h2 class="card-header" id="edit">
+<div id='edit-user-form' class='container'>
+  <h2 class='card-header' id='edit'>
     Edit Account
   </h2>
-  <form class="form-label container">
-    <div class="form-input flex">
-      <label for='username'>Username</label>
-      <input class="card w-50 h-5" name="username" type="text" value="{{username}}"/>
-      <br>
-      <label for='email'>Email</label>
-      <input class="card w-50 h-5" name="email" type="text" value="{{email}}"/>
-      <br>
-      <label for='password'>Password</label>
-      <input class="card w-50 h-5" name="password" type="password" />
+  <form class='edit-account-form form-label container mt-5'>
+    <div class='form-input flex'>
+      <label class="form-label w-25" for='username'>Username</label>
+      <input class='card w-50 h-5' name='username' type='text' value='{{user.username}}'/>
+      <br />
+      <label class="form-label w-25" for='email'>Email</label>
+      <input class='card w-50 h-5' name='email' type='text' value='{{user.email}}' />
+      <br />
+      <label class="form-label w-25" for='password'>Password</label>
+      <input class='card w-50 h-5' id="password-change" name='password' type='password' />
+      <input type="checkbox" onclick="showPassword()">Show Password
     </div>
-    <button type="submit" class="btn w-25">Save</button>
-    <button type="button" class="delete-post-btn btn w-25">Delete Account</button>
+    <div class="editbtns">
+    <button type='submit' id="save-btn" class='btn w-25'>Save</button>
+    <button type='button' id="delete-account-btn" class='btn w-25'>Delete Account</button>
+    </div>
   </form>
+</div>
+<script src='/javascript/edit-user.js'></script>

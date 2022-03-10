@@ -1,9 +1,11 @@
-   <h2 class="card card-header container" id="your-posts-header">Your Posts
+  <div id="dashboard-header">
+    <h2 class="card card-header container" id="your-posts-header">Your Posts
     <button class="btn w-20" id="add-new">Add a post</button>
-    {{!-- <div class="container">
-      <a href="/dashboard/user/{{post.user.id}}" class="edit-link btn container card" id="edit-user">Edit Account</a>
-    </div> --}}
+    <div id="edit-container" class="w-20">
+      <a href="/dashboard/user/{{posts.[0].user.id}}" class="edit-link btn container card" id="edit-user">Edit Account</a>
+    </div>
   </h2>
+  </div>
   {{#if posts.length}}
 <section>
   <div>
@@ -37,8 +39,5 @@
     </div>
     <button type='submit' id="create-new" class='btn w-25'>Create</button>
   </form>
-</div>
-
-</div>
 <script src="/javascript/edit-user.js"></script>
 <script src="/javascript/add-post.js"></script>

@@ -67,6 +67,10 @@
     background-position-y: -480px;
   }
 }
+.text-white {
+  color: var(--color-white);
+  background-color: var(--color-black-1));
+}
 
 #logo {
   color: var(--color-black-1);
@@ -124,7 +128,19 @@
   top: -10px;
   left: -10px;
 }
-
+#edit-container {
+  width: 25%;
+  font-size: 20px;
+  text-align: center;
+  padding: 20;
+  display: flex;
+  justify-content: center;
+}
+#dashboard-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 body {
   background-color: var(--secondary);
   margin: 0;
@@ -213,8 +229,9 @@ h6 {
 #main-dashboard {
   color: var(--color-white);
 }
-#edit-user-form {
-  display: none;
+.editbtns {
+  display: flex;
+  justify-content: center;
 }
 input {
   font-size: 20px; 

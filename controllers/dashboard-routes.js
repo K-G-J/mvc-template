@@ -10,7 +10,7 @@ router.get('/', withAuth, (req, res) => {
       // use the id from the session
       user_id: req.session.user_id
     },
-    atçtributes: [
+    attributes: [
       'id',
       'post_url',
       'title',

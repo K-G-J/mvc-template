@@ -229,6 +229,10 @@ h6 {
 #main-dashboard {
   color: var(--color-white);
 }
+#vote-alert {
+  padding: 3;
+  margin: 5;
+}
 .editbtns {
   display: flex;
   justify-content: center;

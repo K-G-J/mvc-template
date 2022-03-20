@@ -13,7 +13,7 @@ async function upvoteClickHandler(event) {
   if (response.ok) {
     document.location.reload();
   } else {
-    alert(response.statusText)
+    document.querySelector('#vote-alert').innerHTML = 'Please only vote once.'
   }
 }
 

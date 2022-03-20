@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Vote, Comment } = require('../../models');
+const Op = require('Sequelize').Op
 
 // get all users
 router.get('/', (req, res) => {
@@ -78,8 +79,18 @@ router.post('/login', (req, res) => {
   // expects {email: 'lernantino@gmail.com', password: 'password1234'}
   User.findOne({
     where: {
-      email: req.body.email
-    }
+          [Op.or]: [
+            {
+              email: {
+                [Op.eq]: req.body.email,
+              },
+            }, {
+              username: {
+                [Op.eq]: req.body.username,
+              },
+            },
+          ],
+        }
   }).then((dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({

@@ -69,9 +69,13 @@
 }
 .text-white {
   color: var(--color-white);
-  background-color: var(--color-black-1));
+  background-color: var(--color-black-1);
 }
-
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
 #logo {
   color: var(--color-black-1);
   position: relative;
@@ -236,6 +240,12 @@ h6 {
 .editbtns {
   display: flex;
   justify-content: center;
+}
+#about-btn {
+  color: var(--color-white);
+}
+#login {
+  color: var(--color-white);
 }
 input {
   font-size: 20px; 
@@ -501,6 +511,12 @@ input:focus {
 }
 #edit-comment {
   height: 300%;
+}
+.about-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25;
 }
 
 /* LAYOUT */

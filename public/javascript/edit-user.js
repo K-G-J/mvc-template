@@ -17,8 +17,7 @@ async function editAccountHandler(event) {
     const response = await axios.put(`/api/users/${id}`, { username, email, password })
     .then(document.location.replace('/dashboard/'))
   } catch (err) {
-    alert(err)
-    console.log(err.response.status)
+    document.querySelector('#invalid').innerHTML = 'Something went wrong, please try again.'
   } 
 }
 
@@ -28,8 +27,7 @@ async function deleteAccount() {
     const response = await axios.delete(`/api/users/${id}`)
     .then((document.location.replace('/')))
   } catch (err) {
-    alert(err)
-    console.log(err.response.status)
+    document.querySelector('#invalid').innerHTML = 'Something went wrong, please try again.'
   }
 }
 

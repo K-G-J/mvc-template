@@ -147,5 +147,9 @@ router.get('/search/:title', (req, res) => {
       res.status(500).json(err);
     });
 });
+// render the about page 
+router.get('/about', (req, res) => {
+  res.render('about')
+})
 
 module.exports = router;

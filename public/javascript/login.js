@@ -44,7 +44,7 @@ async function loginFormHandler(event) {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      document.querySelector('#invalid-login').innerHTML = 'Invalid credentials, please try again.'
     }
   }
 }
